@@ -11,7 +11,7 @@ RUN set -ex \
     && apk update \
     && apk add autoconf libtool nasm \
     # required for building native npm packages
-    && apk add g++ make bash zlib-dev libpng-dev \ 
+    && apk add g++ make automake bash zlib-dev libpng-dev \ 
     && apk add nodejs nodejs-npm
 
 # install default NPM packages
