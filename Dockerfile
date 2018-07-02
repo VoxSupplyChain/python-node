@@ -17,13 +17,6 @@ RUN set -ex \
 # install default NPM packages
 RUN npm install -g typescript
 
-# install Java & ammonite for scala scripting
-RUN set -ex \
-    && apk add curl ncurses openjdk8 \
-    && sh -c '(echo "#!/usr/bin/env sh" && curl -L https://github.com/lihaoyi/Ammonite/releases/download/1.1.2/2.12-1.1.2) > /usr/local/bin/amm && chmod +x /usr/local/bin/amm' \
-    && mkdir -p ~/.ammonite && curl -L -o ~/.ammonite/predef.sc https://git.io/vHaKQ
-
-
 # cleanup
 RUN rm -rf /var/cache/apk/* && \
     rm -rf /tmp/*
